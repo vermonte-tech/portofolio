@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initPortfolioFilter();
   initSmoothScroll();
   initMobileNav();
+  initNavbarScroll();
 });
 
 /**
- * Mobile Navigation Toggle
+ * Mobile Navigation Toggle with Hamburger-to-X animation
  */
 function initMobileNav() {
   const navToggle = document.getElementById('navToggle');
@@ -18,16 +19,39 @@ function initMobileNav() {
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
+      const isActive = navToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     });
 
     // Close menu when clicking a link
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
+}
+
+/**
+ * Navbar elevation change on scroll
+ */
+function initNavbarScroll() {
+  const navPill = document.querySelector('.navbar-pill');
+  if (!navPill) return;
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      navPill.classList.add('is-scrolled');
+    } else {
+      navPill.classList.remove('is-scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
 }
 
 /**
