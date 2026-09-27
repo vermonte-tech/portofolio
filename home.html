@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vermonte — High-performance web and mobile solutions tailored for growth. Digital products that drive credibility and operational efficiency.">
+    <meta name="keywords" content="Vermonte, digital agency, creative technology, web development, product design, brand systems">
+    <title>Vermonte — Digital Problems, Solved.</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2309090B'/></svg>">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Floating Minimalist Navbar -->
+    <header class="site-header">
+        <nav class="navbar-pill" aria-label="Main Navigation">
+            <a href="#hero" class="brand-logo" aria-label="Vermonte Home">Vermonte</a>
+
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary btn-sm" id="navCta">
+                Get in touch <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle Navigation">☰</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-grid">
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-eyebrow">Creative Technology Studio</div>
+                    <h1 class="hero-title">Digital Problems, Solved.</h1>
+                    <p class="hero-description">
+                        Vermonte builds high-performance web and mobile solutions tailored for growth. We turn business ideas into modern, scalable digital products that drive credibility and operational efficiency.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#portfolio" class="btn btn-primary">
+                            See our work <span class="arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            Start a project <span class="arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Showcase -->
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-artwork">
+                            <img src="assets/images/VermonteLogo.png" alt="Vermonte Showcase" class="hero-logo-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section ("Ways we help") -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <!-- Header -->
+                <div class="services-header">
+                    <h2 class="section-title">Ways we help</h2>
+                    <p class="section-subtext">
+                        From sharp strategy to expressive digital craft, we build scalable systems designed to grow with your business.
+                    </p>
+                </div>
+
+                <!-- 3-Column Grid -->
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card">
+                        <div>
+                            <div class="service-icon-box" aria-hidden="true">✦</div>
+                            <h3 class="service-title">Brand Sprint</h3>
+                            <ul class="service-features">
+                                <li>Positioning workshop</li>
+                                <li>Visual direction</li>
+                                <li>Launch-ready toolkit</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-outline">Explore tier</a>
+                        </div>
+                    </article>
+
+                    <!-- Service 2 -->
+                    <article class="service-card">
+                        <div>
+                            <div class="service-icon-box" aria-hidden="true">✺</div>
+                            <h3 class="service-title">Digital Experiences</h3>
+                            <ul class="service-features">
+                                <li>Custom web architecture</li>
+                                <li>Interactive UI/UX design</li>
+                                <li>Performance optimization</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-outline">Explore tier</a>
+                        </div>
+                    </article>
+
+                    <!-- Service 3 -->
+                    <article class="service-card">
+                        <div>
+                            <div class="service-icon-box" aria-hidden="true">◉</div>
+                            <h3 class="service-title">Creative Partnership</h3>
+                            <ul class="service-features">
+                                <li>Dedicated engineering sprint</li>
+                                <li>Design system maintenance</li>
+                                <li>Ongoing strategic advisory</li>
+                            </ul>
+                        </div>
+                        <div class="service-card-footer">
+                            <a href="#contact" class="btn btn-primary btn-sm">Retainer info</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Work (Portfolio) Section -->
+        <section class="portfolio-section" id="portfolio">
+            <div class="container">
+                <!-- Header -->
+                <div class="portfolio-header">
+                    <h2 class="section-title">Selected work</h2>
+                    <!-- Category Filter Tabs -->
+                    <div class="filter-group" role="tablist" aria-label="Portfolio Category Filter">
+                        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All work</button>
+                        <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+                        <button class="filter-btn" data-filter="digital" role="tab" aria-selected="false">Digital</button>
+                        <button class="filter-btn" data-filter="development" role="tab" aria-selected="false">Development</button>
+                    </div>
+                </div>
+
+                <!-- Grid -->
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Project 1 -->
+                    <article class="project-card" data-category="branding">
+                        <div class="project-media-banner">
+                            <div class="geo-circle"></div>
+                            <div class="banner-badge">Brand Architecture</div>
+                        </div>
+                        <div class="project-body">
+                            <span class="badge-category">Brand Identity</span>
+                            <h3 class="project-title">Aurora Arts Festival</h3>
+                            <p class="project-desc">A revitalized visual identity and immersive digital showcase platform.</p>
+                            <div class="project-footer">
+                                <div class="tag-group">
+                                    <span class="tag-pill">Strategy</span>
+                                    <span class="tag-pill">Webflow</span>
+                                    <span class="tag-pill">Motion</span>
+                                </div>
+                                <a href="#contact" class="btn-icon-round" aria-label="Explore Aurora Arts Festival project">↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card" data-category="digital">
+                        <div class="project-media-banner">
+                            <div class="geo-circle"></div>
+                            <div class="banner-badge">Digital Product</div>
+                        </div>
+                        <div class="project-body">
+                            <span class="badge-category">Platform Design</span>
+                            <h3 class="project-title">Luma Music Platform</h3>
+                            <p class="project-desc">A vivid identity system and interactive audio-streaming user experience.</p>
+                            <div class="project-footer">
+                                <div class="tag-group">
+                                    <span class="tag-pill">Strategy</span>
+                                    <span class="tag-pill">Next.js</span>
+                                    <span class="tag-pill">Audio API</span>
+                                </div>
+                                <a href="#contact" class="btn-icon-round" aria-label="Explore Luma Music Platform project">↗</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA & Contact Section -->
+        <section class="cta-section" id="contact">
+            <div class="container">
+                <div class="cta-card">
+                    <!-- Left Copy -->
+                    <div class="cta-left">
+                        <h2 class="cta-heading">Let's make something magnetic.</h2>
+                        <p class="cta-subtext">Tell us what you are building. We will review your project and reply within two working days.</p>
+                    </div>
+
+                    <!-- Right Form -->
+                    <form class="cta-form" id="inquiryForm" onsubmit="event.preventDefault(); handleInquirySubmit();">
+                        <div class="form-group">
+                            <label for="emailInput">Your email</label>
+                            <input type="email" id="emailInput" class="form-control" placeholder="name@company.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceSelect">Project type</label>
+                            <select id="serviceSelect" class="form-control" required>
+                                <option value="" disabled selected>Choose a service</option>
+                                <option value="brand">Brand Sprint</option>
+                                <option value="digital">Digital Experiences</option>
+                                <option value="partnership">Creative Partnership</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Send inquiry <span class="arrow" aria-hidden="true">↗</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer" id="about">
+        <div class="container footer-grid">
+            <!-- Brand -->
+            <div class="footer-brand-col">
+                <a href="#hero" class="footer-logo">Vermonte</a>
+            </div>
+
+            <!-- Explore -->
+            <div class="footer-col">
+                <h4 class="footer-column-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">Studio</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect -->
+            <div class="footer-col">
+                <h4 class="footer-column-title">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance</a></li>
+                </ul>
+            </div>
+
+            <!-- Visit / Info -->
+            <div class="footer-col">
+                <h4 class="footer-column-title">Visit</h4>
+                <div class="footer-contact-info">
+                    <p>Kotawali — Tangerang</p>
+                    <p><a href="mailto:vermonte@support.com">vermonte@support.com</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
