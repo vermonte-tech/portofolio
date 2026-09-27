@@ -77,8 +77,9 @@ function initPortfolioFilter() {
 
       // Filter cards
       projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filterValue === 'all' || category === filterValue) {
+        const category = card.getAttribute('data-category') || '';
+        const categories = category.split(' ').filter(Boolean);
+        if (filterValue === 'all' || category === filterValue || categories.includes(filterValue)) {
           card.style.display = 'flex';
           card.style.animation = 'fadeIn 0.3s ease';
         } else {

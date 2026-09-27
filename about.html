@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Vermonte.Tech — A specialized software development house building high-performance websites, mobile apps, and scalable digital platforms for modern businesses.">
+    <meta name="keywords" content="Vermonte.Tech, About Vermonte, software development house, web development, mobile apps, digital transformation">
+    <title>About Us — Vermonte.Tech</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%2309090B'/></svg>">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Floating Minimalist Navbar -->
+    <header class="site-header">
+        <nav class="navbar-pill" aria-label="Main Navigation">
+            <a href="index.html#hero" class="brand-logo" aria-label="Vermonte Home">Vermonte</a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary btn-sm" id="navCta">
+                Get in touch <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Hero Section -->
+        <section class="hero-section" id="about-hero">
+            <div class="container hero-grid">
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-eyebrow">About Vermonte.Tech</div>
+                    <h1 class="hero-title">Digital Problems, Solved.</h1>
+                    <p class="hero-description about-description">
+                        <strong>Vermonte.Tech</strong> is a software development house specializing in comprehensive digital solutions—from corporate web platforms to high-performance web and mobile applications. We are dedicated to transforming business and brand visions into modern, adaptive, and scalable digital products.
+                    </p>
+                    <p class="hero-description about-description" style="color: var(--text-primary); font-weight: 500;">
+                        We believe that a digital platform is vital infrastructure that establishes credibility, drives sustainable growth, and maximizes operational efficiency in an era of technological transformation.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            Start a project <span class="arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a href="index.html#portfolio" class="btn btn-secondary">
+                            View our portfolio <span class="arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Showcase -->
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-artwork">
+                            <img src="assets/images/VermonteLogo.png" alt="Vermonte Showcase" class="hero-logo-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- CTA & Contact Section -->
+        <section class="cta-section" id="contact">
+            <div class="container">
+                <div class="cta-card">
+                    <!-- Left Copy -->
+                    <div class="cta-left">
+                        <h2 class="cta-heading">Let's make something magnetic.</h2>
+                        <p class="cta-subtext">Tell us what you are building. We will review your project and reply within two working days.</p>
+                    </div>
+
+                    <!-- Right Form -->
+                    <form class="cta-form" id="inquiryForm" onsubmit="event.preventDefault(); handleInquirySubmit();">
+                        <div class="form-group">
+                            <label for="emailInput">Your email</label>
+                            <input type="email" id="emailInput" class="form-control" placeholder="name@company.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceSelect">Project type</label>
+                            <select id="serviceSelect" class="form-control" required>
+                                <option value="" disabled selected>Choose a service</option>
+                                <option value="web">Web Development</option>
+                                <option value="app">App Development</option>
+                                <option value="custom">Custom Digital Solutions</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Send inquiry <span class="arrow" aria-hidden="true">↗</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <!-- Brand -->
+            <div class="footer-brand-col">
+                <a href="index.html#hero" class="footer-logo">Vermonte</a>
+            </div>
+
+            <!-- Explore -->
+            <div class="footer-col">
+                <h4 class="footer-column-title">Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect -->
+            <div class="footer-col">
+                <h4 class="footer-column-title">Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/vermonte-tech/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-col">
+                <h4 class="footer-column-title">Contact</h4>
+                <div class="footer-contact-info">
+                    <p><a href="mailto:vermonte.tech@gmail.com">vermonte.tech@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
