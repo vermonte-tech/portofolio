@@ -26,25 +26,25 @@ This document provides the section-by-section breakdown of the modern, professio
 
 ---
 
-## 3. "Ways we help" (Services Section)
+## 3. "Core Services" (Services Section)
 
 - **Background**: Soft neutral surface (`#FAFAFA`) with hairline top and bottom dividers.
 - **Header**: 2-column split with clear section title and descriptive editorial copy.
 - **3-Column Service Grid**:
-  - **Brand Sprint**: Positioning workshop, Visual direction, Launch-ready toolkit.
-  - **Digital Experiences**: Custom web architecture, Interactive UI/UX design, Performance optimization.
-  - **Creative Partnership**: Dedicated engineering sprint, Design system maintenance, Ongoing strategic advisory.
+  - **Web Development**: Company profiles & landing pages, E-commerce & custom web platforms, Responsive & fast performance, Optimized security & SEO.
+  - **App Development**: iOS & Android mobile apps, Intuitive web applications, Optimized business operations, Direct interactive user experience.
+  - **Custom Digital Solutions**: System & API integration, Server infrastructure management, Domain & hosting setup, Routine maintenance & support.
 - **Card Styling**: Clean white card background, rounded `16px` corners, hairline borders, and smooth `translateY(-4px)` hover transitions.
 
 ---
 
-## 4. "Selected work" (Portfolio Section)
+## 4. "Portfolio" Section
 
-- **Filter Bar**: Clean category tabs (`All work`, `Branding`, `Digital`, `Development`) with solid black active pill state.
+- **Filter Bar**: Category tabs aligned with Core Services (`All work`, `Web Development`, `App Development`, `Custom Digital Solutions`) with solid black active pill state.
 - **2-Column Project Grid**:
-  - **Aurora Arts Festival**: Brand identity & immersive digital showcase platform.
-  - **Luma Music Platform**: Audio streaming platform UI/UX & platform architecture.
-- **Card Anatomy**: Deep matte dark media preview banner, subtle gradient ambient shape, clean glass badge, tag pills, and circular hover action button (`↗`).
+  - **Pearl River Piano**: Official web experience for world-renowned piano manufacturer featuring product catalogs, elegant visual aesthetics, and brand exclusivity.
+  - **Family Travel**: Modern tourism platform engineered for easy package discovery, destination showcases, and interactive booking inquiries.
+- **Card Anatomy**: Clean high-resolution image preview banner with hover zoom, subtle gradient overlay, tag pills, and circular hover action button (`↗`).
 
 ---
 
@@ -59,4 +59,4 @@ This document provides the section-by-section breakdown of the modern, professio
 ## 6. Footer
 
 - **Background**: Deep matte black (`#09090B`) with subtle border separator.
-- **4-Column Layout**: Brand wordmark, Explore links, Social channels, and Studio location / contact email.
+- **4-Column Layout**: Brand wordmark, Explore links, Social channels (Instagram, LinkedIn), and Direct contact email.

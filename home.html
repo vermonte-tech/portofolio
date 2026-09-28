@@ -23,8 +23,8 @@
             <ul class="nav-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Work</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -32,7 +32,11 @@
                 Get in touch <span class="arrow" aria-hidden="true">↗</span>
             </a>
 
-            <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle Navigation">☰</button>
+            <button class="nav-mobile-btn" id="navToggle" aria-label="Toggle Navigation" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -69,28 +73,58 @@
             </div>
         </section>
 
-        <!-- Services Section ("Ways we help") -->
+        <!-- Tech Stack Marquee -->
+        <section class="tech-marquee-section" aria-label="Technologies we use">
+            <div class="tech-marquee-wrapper">
+                <div class="tech-marquee-track">
+                    <!-- Set 1 -->
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 2.3l4.3 2.5a.6.6 0 0 1 .3.5v5.3l-4.6 2.6-4.6-2.6V5.3a.6.6 0 0 1 .3-.5l4.3-2.5zm11.3 6.5l-4.6 2.7v5.3a.6.6 0 0 1-.3.5l-4.3 2.5-4.3-2.5a.6.6 0 0 1-.3-.5v-4.4l-4.6-2.7V17a.6.6 0 0 0 .3.5l8.6 5a.6.6 0 0 0 .6 0l8.6-5a.6.6 0 0 0 .3-.5V8.8z"/></svg></span><span class="tech-name">Laravel</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 8h2v2h-2zm-3 0h2v2h-2zm-3 0h2v2H7zm-3 3h2v2H4zm3 0h2v2H7zm3 0h2v2h-2zm3 0h2v2h-2zm3 0h2v2h-2zm6.5 1.5c-.4 0-1.2.1-1.6.4-1.1-.8-2.6-.9-3.8-.4-.3-1-.9-1.8-1.7-2.3L16 11V6h-2v2h-2V6h-2v2H8V6H6v5H2c-.5 0-1 .4-1 .9 0 3.3 2 6.1 5 7.1 5.4 1.8 11.2-.4 14.4-4.8 1.2-.1 2.6-.7 3.6-2.2-.7-.3-1.4-.5-2.2-.5h-.3z"/></svg></span><span class="tech-name">Docker</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4.5 13.5l1.2-5h2.5c1.2 0 2 .6 2 1.8 0 1.5-1.1 2.2-2.3 2.2H9.8l-.5 2H7.5zm1.9-3.3h1.1c.7 0 1.1-.3 1.1-.9 0-.5-.4-.8-.9-.8H9.9l-.5 1.7zm6.6 3.3l1.2-5h2.5c1.2 0 2 .6 2 1.8 0 1.5-1.1 2.2-2.3 2.2h-1.4l-.5 2H16zm1.9-3.3h1.1c.7 0 1.1-.3 1.1-.9 0-.5-.4-.8-.9-.8h-1.2l-.5 1.7z"/></svg></span><span class="tech-name">PHP</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312L4.697 9.873c-.002-.023-.002-.047-.002-.072 0-.97.74-1.74 1.696-1.74.836 0 1.344.597 1.344 1.373 0 .716-.388 1.85-.388 2.746 0 1.492 1.074 2.656 2.597 2.656 1.403 0 2.209-.985 2.209-2.298 0-1.85-.925-3.671-.925-5.074 0-1.612 1.104-2.656 2.746-2.656.328 0 .657.06.955.15C13.91 2.149 12.985 2 12 2zm0 20c-1.88 0-3.626-.52-5.119-1.433l5.09-14.731c.03.03.06.06.09.09l4.567 12.508C15.224 20.358 13.672 22 12 22zm7.644-3.149L15.358 6.94c.478-.06.985-.09 1.493-.09 1.164 0 2.268.209 3.283.597-1.373 5.433-2.493 9.403-2.493 11.404z"/></svg></span><span class="tech-name">WordPress</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm13.7 13.8c-.8 0-1.4-.4-1.7-.9l-1.3.8c.6 1.1 1.6 1.7 3 1.7 1.9 0 3.2-1.1 3.2-2.9 0-1.8-1.2-2.5-2.6-3.1-.9-.4-1.3-.7-1.3-1.3 0-.6.5-1 1.2-1 .7 0 1.2.3 1.5.8l1.3-.8c-.5-.9-1.4-1.5-2.8-1.5-1.7 0-2.9 1-2.9 2.6 0 1.7 1.1 2.4 2.5 3 .9.4 1.4.8 1.4 1.4 0 .7-.6 1.2-1.5 1.2zm-5.8-.2v-7.2H9.1v5.7c0 1.1-.5 1.5-1.3 1.5-.4 0-.8-.1-1-.3l-.4 1.5c.4.3 1 .4 1.7.4 1.8 0 2.7-.9 2.7-2.6z"/></svg></span><span class="tech-name">JS</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 2c-3.7 0-3.5 1.6-3.5 1.6v1.7h7.1v1H5.4S2 5.9 2 9.7c0 3.8 3 3.6 3 3.6h1.8v-2.5c0-1.8 1.6-1.7 1.6-1.7h7.1c1.5 0 1.5-1.5 1.5-1.5V3.6S17.4 2 11.9 2zm-1.9 1.7c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zm1.9 18.3c3.7 0 3.5-1.6 3.5-1.6v-1.7H8.3v-1h10.1s3.4.4 3.4-3.4c0-3.8-3-3.6-3-3.6H17v2.5c0 1.8-1.6 1.7-1.6 1.7H8.3c-1.5 0-1.5 1.5-1.5 1.5v3.9s-.4 1.7 5.1 1.7zm1.9-1.7c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg></span><span class="tech-name">Python</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 10.5C2 7.5 4.5 5 8 5c2.3 0 4.1 1 5.3 2.7l-2.4 1.4C10.1 7.9 9.1 7.4 8 7.4 5.9 7.4 4.3 9 3.9 11h9.1v2.4H3.9c.4 2 2 3.6 4.1 3.6 1.3 0 2.4-.6 3.1-1.6l2.3 1.4C12.1 18.6 10.2 19.5 8 19.5c-3.6 0-6.1-2.5-6.5-6.5zm15.8-5.3c3.7 0 6.7 3 6.7 6.8s-3 6.8-6.7 6.8c-3.7 0-6.7-3-6.7-6.8s3-6.8 6.7-6.8zm0 2.4c-2.4 0-4.3 2-4.3 4.4s1.9 4.4 4.3 4.4 4.3-2 4.3-4.4-1.9-4.4-4.3-4.4z"/></svg></span><span class="tech-name">Go</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l10.4 6v12L12 24 1.6 18V6L12 0zm0 2.3L3.6 7.1v9.8L12 21.7l8.4-4.8V7.1L12 2.3z"/></svg></span><span class="tech-name">Node.js</span></div>
+                    <div class="tech-pill"><span class="tech-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37zM14.314 11.215L8.71 16.82l5.604 5.604h7.37L16.08 16.82l5.604-5.605h-7.37z"/></svg></span><span class="tech-name">Flutter</span></div>
+
+                    <!-- Duplicate for infinite seamless scroll -->
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 2.3l4.3 2.5a.6.6 0 0 1 .3.5v5.3l-4.6 2.6-4.6-2.6V5.3a.6.6 0 0 1 .3-.5l4.3-2.5zm11.3 6.5l-4.6 2.7v5.3a.6.6 0 0 1-.3.5l-4.3 2.5-4.3-2.5a.6.6 0 0 1-.3-.5v-4.4l-4.6-2.7V17a.6.6 0 0 0 .3.5l8.6 5a.6.6 0 0 0 .6 0l8.6-5a.6.6 0 0 0 .3-.5V8.8z"/></svg></span><span class="tech-name">Laravel</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 8h2v2h-2zm-3 0h2v2h-2zm-3 0h2v2H7zm-3 3h2v2H4zm3 0h2v2H7zm3 0h2v2h-2zm3 0h2v2h-2zm3 0h2v2h-2zm6.5 1.5c-.4 0-1.2.1-1.6.4-1.1-.8-2.6-.9-3.8-.4-.3-1-.9-1.8-1.7-2.3L16 11V6h-2v2h-2V6h-2v2H8V6H6v5H2c-.5 0-1 .4-1 .9 0 3.3 2 6.1 5 7.1 5.4 1.8 11.2-.4 14.4-4.8 1.2-.1 2.6-.7 3.6-2.2-.7-.3-1.4-.5-2.2-.5h-.3z"/></svg></span><span class="tech-name">Docker</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4.5 13.5l1.2-5h2.5c1.2 0 2 .6 2 1.8 0 1.5-1.1 2.2-2.3 2.2H9.8l-.5 2H7.5zm1.9-3.3h1.1c.7 0 1.1-.3 1.1-.9 0-.5-.4-.8-.9-.8H9.9l-.5 1.7zm6.6 3.3l1.2-5h2.5c1.2 0 2 .6 2 1.8 0 1.5-1.1 2.2-2.3 2.2h-1.4l-.5 2H16zm1.9-3.3h1.1c.7 0 1.1-.3 1.1-.9 0-.5-.4-.8-.9-.8h-1.2l-.5 1.7z"/></svg></span><span class="tech-name">PHP</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312L4.697 9.873c-.002-.023-.002-.047-.002-.072 0-.97.74-1.74 1.696-1.74.836 0 1.344.597 1.344 1.373 0 .716-.388 1.85-.388 2.746 0 1.492 1.074 2.656 2.597 2.656 1.403 0 2.209-.985 2.209-2.298 0-1.85-.925-3.671-.925-5.074 0-1.612 1.104-2.656 2.746-2.656.328 0 .657.06.955.15C13.91 2.149 12.985 2 12 2zm0 20c-1.88 0-3.626-.52-5.119-1.433l5.09-14.731c.03.03.06.06.09.09l4.567 12.508C15.224 20.358 13.672 22 12 22zm7.644-3.149L15.358 6.94c.478-.06.985-.09 1.493-.09 1.164 0 2.268.209 3.283.597-1.373 5.433-2.493 9.403-2.493 11.404z"/></svg></span><span class="tech-name">WordPress</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm13.7 13.8c-.8 0-1.4-.4-1.7-.9l-1.3.8c.6 1.1 1.6 1.7 3 1.7 1.9 0 3.2-1.1 3.2-2.9 0-1.8-1.2-2.5-2.6-3.1-.9-.4-1.3-.7-1.3-1.3 0-.6.5-1 1.2-1 .7 0 1.2.3 1.5.8l1.3-.8c-.5-.9-1.4-1.5-2.8-1.5-1.7 0-2.9 1-2.9 2.6 0 1.7 1.1 2.4 2.5 3 .9.4 1.4.8 1.4 1.4 0 .7-.6 1.2-1.5 1.2zm-5.8-.2v-7.2H9.1v5.7c0 1.1-.5 1.5-1.3 1.5-.4 0-.8-.1-1-.3l-.4 1.5c.4.3 1 .4 1.7.4 1.8 0 2.7-.9 2.7-2.6z"/></svg></span><span class="tech-name">JS</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 2c-3.7 0-3.5 1.6-3.5 1.6v1.7h7.1v1H5.4S2 5.9 2 9.7c0 3.8 3 3.6 3 3.6h1.8v-2.5c0-1.8 1.6-1.7 1.6-1.7h7.1c1.5 0 1.5-1.5 1.5-1.5V3.6S17.4 2 11.9 2zm-1.9 1.7c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zm1.9 18.3c3.7 0 3.5-1.6 3.5-1.6v-1.7H8.3v-1h10.1s3.4.4 3.4-3.4c0-3.8-3-3.6-3-3.6H17v2.5c0 1.8-1.6 1.7-1.6 1.7H8.3c-1.5 0-1.5 1.5-1.5 1.5v3.9s-.4 1.7 5.1 1.7zm1.9-1.7c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg></span><span class="tech-name">Python</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 10.5C2 7.5 4.5 5 8 5c2.3 0 4.1 1 5.3 2.7l-2.4 1.4C10.1 7.9 9.1 7.4 8 7.4 5.9 7.4 4.3 9 3.9 11h9.1v2.4H3.9c.4 2 2 3.6 4.1 3.6 1.3 0 2.4-.6 3.1-1.6l2.3 1.4C12.1 18.6 10.2 19.5 8 19.5c-3.6 0-6.1-2.5-6.5-6.5zm15.8-5.3c3.7 0 6.7 3 6.7 6.8s-3 6.8-6.7 6.8c-3.7 0-6.7-3-6.7-6.8s3-6.8 6.7-6.8zm0 2.4c-2.4 0-4.3 2-4.3 4.4s1.9 4.4 4.3 4.4 4.3-2 4.3-4.4-1.9-4.4-4.3-4.4z"/></svg></span><span class="tech-name">Go</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l10.4 6v12L12 24 1.6 18V6L12 0zm0 2.3L3.6 7.1v9.8L12 21.7l8.4-4.8V7.1L12 2.3z"/></svg></span><span class="tech-name">Node.js</span></div>
+                    <div class="tech-pill" aria-hidden="true"><span class="tech-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37zM14.314 11.215L8.71 16.82l5.604 5.604h7.37L16.08 16.82l5.604-5.605h-7.37z"/></svg></span><span class="tech-name">Flutter</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section ("Core Services") -->
         <section class="services-section" id="services">
             <div class="container">
                 <!-- Header -->
-                <div class="services-header">
-                    <h2 class="section-title">Ways we help</h2>
+                <div class="services-header reveal">
+                    <h2 class="section-title">Core Services</h2>
                     <p class="section-subtext">
-                        From sharp strategy to expressive digital craft, we build scalable systems designed to grow with your business.
+                        From custom web platforms to scalable mobile applications, we build robust digital solutions tailored to accelerate your business.
                     </p>
                 </div>
 
                 <!-- 3-Column Grid -->
                 <div class="services-grid">
-                    <!-- Service 1 -->
-                    <article class="service-card">
+                    <!-- Service 1: Web Development -->
+                    <article class="service-card reveal reveal-delay-1">
                         <div>
                             <div class="service-icon-box" aria-hidden="true">✦</div>
-                            <h3 class="service-title">Brand Sprint</h3>
+                            <h3 class="service-title">Web Development</h3>
                             <ul class="service-features">
-                                <li>Positioning workshop</li>
-                                <li>Visual direction</li>
-                                <li>Launch-ready toolkit</li>
+                                <li>Company profiles & landing pages</li>
+                                <li>E-commerce & custom web platforms</li>
+                                <li>Responsive & fast performance</li>
+                                <li>Optimized security & SEO</li>
                             </ul>
                         </div>
                         <div class="service-card-footer">
@@ -98,15 +132,16 @@
                         </div>
                     </article>
 
-                    <!-- Service 2 -->
-                    <article class="service-card">
+                    <!-- Service 2: App Development -->
+                    <article class="service-card reveal reveal-delay-2">
                         <div>
                             <div class="service-icon-box" aria-hidden="true">✺</div>
-                            <h3 class="service-title">Digital Experiences</h3>
+                            <h3 class="service-title">App Development</h3>
                             <ul class="service-features">
-                                <li>Custom web architecture</li>
-                                <li>Interactive UI/UX design</li>
-                                <li>Performance optimization</li>
+                                <li>iOS & Android mobile apps</li>
+                                <li>Intuitive web applications</li>
+                                <li>Optimized business operations</li>
+                                <li>Direct interactive user experience</li>
                             </ul>
                         </div>
                         <div class="service-card-footer">
@@ -114,80 +149,79 @@
                         </div>
                     </article>
 
-                    <!-- Service 3 -->
-                    <article class="service-card">
+                    <!-- Service 3: Custom Digital Solutions -->
+                    <article class="service-card reveal reveal-delay-3">
                         <div>
                             <div class="service-icon-box" aria-hidden="true">◉</div>
-                            <h3 class="service-title">Creative Partnership</h3>
+                            <h3 class="service-title">Custom Digital Solutions</h3>
                             <ul class="service-features">
-                                <li>Dedicated engineering sprint</li>
-                                <li>Design system maintenance</li>
-                                <li>Ongoing strategic advisory</li>
+                                <li>System & API integration</li>
+                                <li>Server infrastructure management</li>
+                                <li>Domain & hosting setup</li>
+                                <li>Routine maintenance & support</li>
                             </ul>
                         </div>
                         <div class="service-card-footer">
-                            <a href="#contact" class="btn btn-primary btn-sm">Retainer info</a>
+                            <a href="#contact" class="btn btn-outline">Explore tier</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Selected Work (Portfolio) Section -->
+        <!-- Portfolio Section -->
         <section class="portfolio-section" id="portfolio">
             <div class="container">
                 <!-- Header -->
-                <div class="portfolio-header">
-                    <h2 class="section-title">Selected work</h2>
+                <div class="portfolio-header reveal">
+                    <h2 class="section-title">Portfolio</h2>
                     <!-- Category Filter Tabs -->
                     <div class="filter-group" role="tablist" aria-label="Portfolio Category Filter">
                         <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All work</button>
-                        <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
-                        <button class="filter-btn" data-filter="digital" role="tab" aria-selected="false">Digital</button>
-                        <button class="filter-btn" data-filter="development" role="tab" aria-selected="false">Development</button>
+                        <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web Development</button>
+                        <button class="filter-btn" data-filter="app" role="tab" aria-selected="false">App Development</button>
+                        <button class="filter-btn" data-filter="custom" role="tab" aria-selected="false">Custom Digital Solutions</button>
                     </div>
                 </div>
 
                 <!-- Grid -->
                 <div class="portfolio-grid" id="portfolioGrid">
-                    <!-- Project 1 -->
-                    <article class="project-card" data-category="branding">
+                    <!-- Project 1: Pearl River Piano -->
+                    <article class="project-card reveal reveal-delay-1" data-category="web custom">
                         <div class="project-media-banner">
-                            <div class="geo-circle"></div>
-                            <div class="banner-badge">Brand Architecture</div>
+                            <img src="assets/images/PearlRiver.png" alt="Pearl River Piano Web Experience" class="project-img">
+                            <div class="project-media-overlay"></div>
                         </div>
                         <div class="project-body">
-                            <span class="badge-category">Brand Identity</span>
-                            <h3 class="project-title">Aurora Arts Festival</h3>
-                            <p class="project-desc">A revitalized visual identity and immersive digital showcase platform.</p>
+                            <h3 class="project-title">Pearl River Piano</h3>
+                            <p class="project-desc">Website development for a world-renowned musical instrument manufacturer, featuring elegant visual storytelling, intuitive catalog architecture, and an elevated user experience matching brand exclusivity.</p>
                             <div class="project-footer">
                                 <div class="tag-group">
-                                    <span class="tag-pill">Strategy</span>
-                                    <span class="tag-pill">Webflow</span>
-                                    <span class="tag-pill">Motion</span>
+                                    <span class="tag-pill">UI/UX Design</span>
+                                    <span class="tag-pill">Product Catalog</span>
+                                    <span class="tag-pill">Web Platform</span>
                                 </div>
-                                <a href="#contact" class="btn-icon-round" aria-label="Explore Aurora Arts Festival project">↗</a>
+                                <a href="#contact" class="btn-icon-round" aria-label="Explore Pearl River Piano project">↗</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Project 2 -->
-                    <article class="project-card" data-category="digital">
+                    <!-- Project 2: Family Travel -->
+                    <article class="project-card reveal reveal-delay-2" data-category="web app">
                         <div class="project-media-banner">
-                            <div class="geo-circle"></div>
-                            <div class="banner-badge">Digital Product</div>
+                            <img src="assets/images/FamilyTravel.png" alt="Family Travel.Id Tourism Platform" class="project-img">
+                            <div class="project-media-overlay"></div>
                         </div>
                         <div class="project-body">
-                            <span class="badge-category">Platform Design</span>
-                            <h3 class="project-title">Luma Music Platform</h3>
-                            <p class="project-desc">A vivid identity system and interactive audio-streaming user experience.</p>
+                            <h3 class="project-title">Family Travel</h3>
+                            <p class="project-desc">A modern web platform built for professional travel agencies, designed to simplify holiday package exploration, destination showcases, and seamless booking inquiries.</p>
                             <div class="project-footer">
                                 <div class="tag-group">
-                                    <span class="tag-pill">Strategy</span>
-                                    <span class="tag-pill">Next.js</span>
-                                    <span class="tag-pill">Audio API</span>
+                                    <span class="tag-pill">Tour Booking</span>
+                                    <span class="tag-pill">Destination Guide</span>
+                                    <span class="tag-pill">Responsive Web</span>
                                 </div>
-                                <a href="#contact" class="btn-icon-round" aria-label="Explore Luma Music Platform project">↗</a>
+                                <a href="#contact" class="btn-icon-round" aria-label="Explore Family Travel project">↗</a>
                             </div>
                         </div>
                     </article>
@@ -198,7 +232,7 @@
         <!-- CTA & Contact Section -->
         <section class="cta-section" id="contact">
             <div class="container">
-                <div class="cta-card">
+                <div class="cta-card reveal">
                     <!-- Left Copy -->
                     <div class="cta-left">
                         <h2 class="cta-heading">Let's make something magnetic.</h2>
@@ -216,9 +250,9 @@
                             <label for="serviceSelect">Project type</label>
                             <select id="serviceSelect" class="form-control" required>
                                 <option value="" disabled selected>Choose a service</option>
-                                <option value="brand">Brand Sprint</option>
-                                <option value="digital">Digital Experiences</option>
-                                <option value="partnership">Creative Partnership</option>
+                                <option value="web">Web Development</option>
+                                <option value="app">App Development</option>
+                                <option value="custom">Custom Digital Solutions</option>
                             </select>
                         </div>
 
@@ -243,9 +277,9 @@
             <div class="footer-col">
                 <h4 class="footer-column-title">Explore</h4>
                 <ul class="footer-links">
-                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#about">Studio</a></li>
+                    <li><a href="about.html">About Us</a></li>
                 </ul>
             </div>
 
@@ -254,17 +288,15 @@
                 <h4 class="footer-column-title">Connect</h4>
                 <ul class="footer-links">
                     <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href="https://behance.net" target="_blank" rel="noopener noreferrer">Behance</a></li>
+                    <li><a href="https://www.linkedin.com/company/vermonte-tech/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                 </ul>
             </div>
 
-            <!-- Visit / Info -->
+            <!-- Contact -->
             <div class="footer-col">
-                <h4 class="footer-column-title">Visit</h4>
+                <h4 class="footer-column-title">Contact</h4>
                 <div class="footer-contact-info">
-                    <p>Kotawali — Tangerang</p>
-                    <p><a href="mailto:vermonte@support.com">vermonte@support.com</a></p>
+                    <p><a href="mailto:vermonte.tech@gmail.com">vermonte.tech@gmail.com</a></p>
                 </div>
             </div>
         </div>

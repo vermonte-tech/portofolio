@@ -97,19 +97,27 @@ button, input, select, textarea {
   border-radius: var(--radius-full);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   user-select: none;
   text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn .arrow {
   display: inline-block;
   font-size: 1.05rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn:hover .arrow {
-  transform: translate(2px, -2px);
+  transform: translate(3px, -3px);
 }
 
 /* Primary Button (Black) */
@@ -122,8 +130,8 @@ button, input, select, textarea {
 .btn-primary:hover {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.22);
 }
 
 /* Secondary Button (Clean Outline) */
@@ -137,7 +145,8 @@ button, input, select, textarea {
   background-color: var(--bg-secondary);
   border-color: var(--text-primary);
   color: var(--text-primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Outline Pill Button */
@@ -153,6 +162,7 @@ button, input, select, textarea {
   background-color: var(--text-primary);
   color: var(--text-white);
   border-color: var(--text-primary);
+  transform: translateY(-2px);
 }
 
 .btn-sm {
@@ -171,14 +181,14 @@ button, input, select, textarea {
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
   font-size: 1.1rem;
-  transition: all 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-icon-round:hover {
   background-color: var(--accent-black);
   color: var(--text-white);
   border-color: var(--accent-black);
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(5deg);
 }
 
 /* =========================================
@@ -189,16 +199,15 @@ button, input, select, textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  pointer-events: none;
 }
 
 .navbar-pill {
   max-width: 960px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
   border-radius: var(--radius-full);
   padding: 0.5rem 0.6rem 0.5rem 1.75rem;
   display: flex;
@@ -206,7 +215,33 @@ button, input, select, textarea {
   justify-content: space-between;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.2s ease;
+  pointer-events: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  /* ponytail: CSS entrance animation only; upgrade to scroll hide/reveal if requested */
+  animation: navSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.navbar-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.08);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-pill.is-scrolled {
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08);
+  border-color: rgba(212, 212, 216, 0.9);
+}
+
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .brand-logo {
@@ -227,6 +262,11 @@ button, input, select, textarea {
   height: 8px;
   border-radius: 50%;
   background-color: var(--accent-black);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-logo:hover::before {
+  transform: scale(1.4);
 }
 
 .nav-menu {
@@ -236,25 +276,81 @@ button, input, select, textarea {
 }
 
 .nav-menu a {
+  position: relative;
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
+  padding: 0.25rem 0;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-black);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-menu a:hover {
   color: var(--text-primary);
 }
 
+.nav-menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .nav-mobile-btn {
   display: none;
   background-color: transparent;
-  color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 0.35rem 0.65rem;
-  font-size: 1.1rem;
+  border-radius: var(--radius-sm);
+  width: 38px;
+  height: 38px;
+  padding: 0;
   cursor: pointer;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-mobile-btn:hover {
+  border-color: var(--border-medium);
+  background-color: var(--bg-secondary);
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Morph hamburger to X */
+.nav-mobile-btn.active .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-mobile-btn.active .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-mobile-btn.active .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* =========================================
@@ -263,6 +359,61 @@ button, input, select, textarea {
 .hero-section {
   padding: 5rem 0 6.5rem 0;
   position: relative;
+  overflow: hidden;
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-opacity: 0;
+}
+
+/* ponytail: 2D radial spotlight only; upgrade to canvas/WebGL if complex particle mesh requested */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    750px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(9, 9, 11, 0.16) 0%,
+    rgba(9, 9, 11, 0.09) 25%,
+    rgba(9, 9, 11, 0.035) 50%,
+    transparent 75%
+  );
+  opacity: var(--spotlight-opacity, 0);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hidden silhouette revealed by cursor spotlight */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/Unflat-Vermonte%20Logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(720px, 90vw);
+  pointer-events: none;
+  z-index: 1;
+  filter: brightness(0) opacity(0.25);
+  opacity: var(--spotlight-opacity, 0);
+  -webkit-mask-image: radial-gradient(
+    circle 320px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    circle 320px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 75%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-grid {
@@ -306,6 +457,19 @@ button, input, select, textarea {
   margin-bottom: 2.5rem;
 }
 
+.about-description {
+  max-width: 540px;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 993px) {
+  .hero-description,
+  .about-description {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
 .hero-actions {
   display: flex;
   gap: 1rem;
@@ -332,11 +496,12 @@ button, input, select, textarea {
   width: 100%;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
 .hero-card:hover {
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
   border-color: var(--border-medium);
 }
 
@@ -359,6 +524,110 @@ button, input, select, textarea {
 
 .hero-card:hover .hero-logo-img {
   filter: grayscale(0%) contrast(100%);
+}
+
+/* =========================================
+   TECH STACK MARQUEE
+   ========================================= */
+.tech-marquee-section {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+  will-change: transform;
+}
+
+.tech-marquee-wrapper:hover .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-pill:hover {
+  transform: translateY(-2px);
+  background-color: var(--bg-primary);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .tech-marquee-track {
+    animation: none !important;
+  }
 }
 
 /* =========================================
@@ -409,14 +678,21 @@ button, input, select, textarea {
   flex-direction: column;
   justify-content: space-between;
   min-height: 340px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   box-shadow: var(--shadow-sm);
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--border-medium);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+}
+
+.service-card:hover .service-icon-box {
+  background-color: var(--accent-black);
+  color: var(--text-white);
+  border-color: var(--accent-black);
+  transform: scale(1.08) rotate(-3deg);
 }
 
 .service-icon-box {
@@ -431,6 +707,7 @@ button, input, select, textarea {
   color: var(--text-primary);
   font-size: 1.25rem;
   margin-bottom: 1.75rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 .service-title {
@@ -454,12 +731,23 @@ button, input, select, textarea {
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
 }
 
 .service-features li::before {
-  content: '—';
-  color: var(--text-muted);
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.service-card:hover .service-features li::before {
+  background-color: var(--text-primary);
+  transform: scale(1.15);
 }
 
 .service-card-footer {
@@ -493,12 +781,17 @@ button, input, select, textarea {
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .filter-btn:hover {
   color: var(--text-primary);
-  border-color: var(--border-medium);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.filter-btn:active {
+  transform: scale(0.96);
 }
 
 .filter-btn.active {
@@ -520,14 +813,31 @@ button, input, select, textarea {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   box-shadow: var(--shadow-sm);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: var(--border-medium);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.12);
+}
+
+.project-card:hover .geo-circle {
+  transform: scale(1.3) translate(-10px, 10px);
+}
+
+.project-card:hover .banner-badge {
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.project-card:hover .btn-icon-round {
+  background-color: var(--accent-black);
+  color: var(--text-white);
+  border-color: var(--accent-black);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .project-media-banner {
@@ -540,6 +850,32 @@ button, input, select, textarea {
   justify-content: center;
 }
 
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-media-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(9, 9, 11, 0.15) 0%, rgba(9, 9, 11, 0.65) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .geo-circle {
   position: absolute;
   top: -50px;
@@ -548,11 +884,14 @@ button, input, select, textarea {
   height: 200px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
 }
 
 .banner-badge {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.08);
+  z-index: 2;
+  background-color: rgba(9, 9, 11, 0.6);
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(8px);
   padding: 0.5rem 1.25rem;
@@ -562,6 +901,7 @@ button, input, select, textarea {
   letter-spacing: 0.1em;
   color: var(--text-white);
   text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .project-body {
@@ -842,14 +1182,16 @@ button, input, select, textarea {
     gap: 1.25rem;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    pointer-events: auto;
   }
 
   .nav-menu.active {
     display: flex;
+    animation: navSlideDown 0.25s ease;
   }
 
   .nav-mobile-btn {
-    display: block;
+    display: flex;
   }
   
   .hero-title {
