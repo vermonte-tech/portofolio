@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initMobileNav();
   initNavbarScroll();
+  initHeroSpotlight();
+  initScrollReveal();
 });
 
 /**
@@ -52,6 +54,38 @@ function initNavbarScroll() {
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
+}
+
+/**
+ * Hero Section Cursor Spotlight
+ */
+function initHeroSpotlight() {
+  const hero = document.querySelector('.hero-section');
+  if (!hero) return;
+
+  let rafId = null;
+
+  hero.addEventListener('pointermove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      hero.style.setProperty('--spotlight-x', `${x}px`);
+      hero.style.setProperty('--spotlight-y', `${y}px`);
+      hero.style.setProperty('--spotlight-opacity', '1');
+    });
+  });
+
+  hero.addEventListener('pointerenter', () => {
+    hero.style.setProperty('--spotlight-opacity', '1');
+  });
+
+  hero.addEventListener('pointerleave', () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    hero.style.setProperty('--spotlight-opacity', '0');
+  });
 }
 
 /**
@@ -132,4 +166,31 @@ function handleInquirySubmit() {
     // Reset form
     document.getElementById('inquiryForm').reset();
   }
+}
+
+/**
+ * Scroll Reveal Animations via IntersectionObserver
+ */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal');
+  if (!revealElements.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.12
+  });
+
+  revealElements.forEach(el => observer.observe(el));
 }

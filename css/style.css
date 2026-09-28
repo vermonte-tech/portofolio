@@ -359,6 +359,61 @@ button, input, select, textarea {
 .hero-section {
   padding: 5rem 0 6.5rem 0;
   position: relative;
+  overflow: hidden;
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-opacity: 0;
+}
+
+/* ponytail: 2D radial spotlight only; upgrade to canvas/WebGL if complex particle mesh requested */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    750px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(9, 9, 11, 0.16) 0%,
+    rgba(9, 9, 11, 0.09) 25%,
+    rgba(9, 9, 11, 0.035) 50%,
+    transparent 75%
+  );
+  opacity: var(--spotlight-opacity, 0);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hidden silhouette revealed by cursor spotlight */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/Unflat-Vermonte%20Logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(720px, 90vw);
+  pointer-events: none;
+  z-index: 1;
+  filter: brightness(0) opacity(0.25);
+  opacity: var(--spotlight-opacity, 0);
+  -webkit-mask-image: radial-gradient(
+    circle 320px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    circle 320px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    black 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    transparent 75%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-grid {
@@ -469,6 +524,110 @@ button, input, select, textarea {
 
 .hero-card:hover .hero-logo-img {
   filter: grayscale(0%) contrast(100%);
+}
+
+/* =========================================
+   TECH STACK MARQUEE
+   ========================================= */
+.tech-marquee-section {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+  will-change: transform;
+}
+
+.tech-marquee-wrapper:hover .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-pill:hover {
+  transform: translateY(-2px);
+  background-color: var(--bg-primary);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .tech-marquee-track {
+    animation: none !important;
+  }
 }
 
 /* =========================================
